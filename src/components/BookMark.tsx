@@ -1,10 +1,10 @@
 import { UseMediaContext } from "../context/WebProvider";
 import searchIcon from "../../public/assets/icon-search.svg";
 import { useState } from "react";
-import bookmarkicon from "../../public/assets/icon-bookmark-empty.svg";
 import oval from "../../public/assets/Oval.svg";
 import movieIcon from "../../public/assets/icon-nav-movies.svg";
 import tvSeriesIcon from "../../public/assets/icon-nav-tv-series.svg";
+import bookMarkFull from "../../public/assets/icon-bookmark-full.svg";
 
 export default function BookMark() {
   const { mediaData, handleClick } = UseMediaContext();
@@ -59,7 +59,7 @@ export default function BookMark() {
                     onClick={() => handleClick(media.id)}
                     className="bookmark absolute top-2 right-2 w-[32px] h-[32px] rounded-[50%] bg-bookmark/50 flex items-center justify-center"
                   >
-                    <img src={bookmarkicon} alt="" />
+                    <img src={bookMarkFull} alt="" />
                   </div>
                   <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff]">
                     <div className="inline-div flex flex-row items-center gap-[8px]">
@@ -107,7 +107,7 @@ export default function BookMark() {
                     onClick={() => handleClick(media.id)}
                     className="bookmark absolute top-2 right-2 w-[32px] h-[32px] rounded-[50%] bg-bookmark/50 flex items-center justify-center"
                   >
-                    <img src={bookmarkicon} alt="" />
+                    <img src={bookMarkFull} alt="" />
                   </div>
                   <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff]">
                     <div className="inline-div flex flex-row items-center gap-[8px]">
