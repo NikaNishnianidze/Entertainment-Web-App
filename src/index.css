@@ -3,6 +3,7 @@
 
 @theme {
   --color-header: #161d2f;
+  --color-bookmark: #10141e;
 }
 
 body {
@@ -17,4 +18,13 @@ body {
 
 .filter-gray {
   filter: brightness(0.5);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
