@@ -17,8 +17,8 @@ export default function TvSeries() {
     (media) => media.category === "TV Series" && media.isTrending == false
   );
   return (
-    <>
-      <div className="search mt-[26px] flex items-center gap-[16px] pl-[16px]">
+    <div className="dk:pl-[164px]">
+      <div className="search mt-[26px] flex items-center gap-[16px] pl-[16px] tb:pl-[25px] tb:mt-[33px] tb:gap-[24px]">
         <img src={searchIcon} alt="search icon" className="w-[24px] h-[24px]" />
         <input
           type="text"
@@ -29,15 +29,15 @@ export default function TvSeries() {
       </div>
       {searchValue && filteredMovies.length > 0 ? (
         <div>
-          <p className="pl-[16px] mt-[26px] text-[#fff] text-[20px] font-normal">
+          <p className="pl-[16px] mt-[26px] text-[#fff] text-[20px] font-normal tb:pl-[25px] tb:mt-[34px] tb:text-[32px]">
             Found {filteredMovies.length} results for {`'${searchValue}'`}
           </p>
-          <div className="recommended flex flex-row items-center justify-center flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px]">
+          <div className="recommended flex flex-row items-center justify-center flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px] tb:justify-start tb:pl-[25px] tb:gap-[29px]">
             {filteredMovies.map((media) => {
               return (
                 <div
                   key={media.title}
-                  className="mt-[24px] w-[164px] mb-[16px] h-[110px] rounded-[8px] relative"
+                  className="mt-[24px] w-[164px] mb-[16px] h-[110px] rounded-[8px] relative tb:w-[220px] tb:h-[140px] dk:w-[280px] dk:h-[174px]"
                 >
                   <img
                     src={media.thumbnail.regular?.small}
@@ -50,7 +50,7 @@ export default function TvSeries() {
                   >
                     <img src={bookmarkicon} alt="" />
                   </div>
-                  <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff]">
+                  <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff] tb:text-[13px]">
                     <div className="inline-div flex flex-row items-center gap-[8px]">
                       <p>{media.year}</p>
                       <img src={oval} alt="oval icon" />
@@ -70,7 +70,9 @@ export default function TvSeries() {
                       <p>{media.rating}</p>
                     </div>
                     <div className="name">
-                      <p className="text-[14px]">{media.title}</p>
+                      <p className="text-[14px] tb:text-[15px]">
+                        {media.title}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -80,15 +82,15 @@ export default function TvSeries() {
         </div>
       ) : (
         <div>
-          <p className="px-[16px] mt-[26px] text-[#fff] text-[20px] font-normal">
+          <p className="px-[16px] mt-[26px] text-[#fff] text-[20px] font-normal tb:mt-[34px] tb:pl-[25px] tb:text-[32px]">
             TV Series
           </p>
-          <div className="recommended flex flex-row items-center justify-center flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px]">
+          <div className="recommended flex flex-row items-center justify-center flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px] tb:gap-[29px] tb:pl-[25px]">
             {tvseries.map((media) => {
               return (
                 <div
                   key={media.title}
-                  className="mt-[24px] w-[164px] mb-[16px] h-[110px] rounded-[8px] relative"
+                  className="mt-[24px] w-[164px] mb-[16px] h-[110px] rounded-[8px] relative tb:w-[220px] tb:h-[140px] dk:w-[280px] dk:h-[174px]"
                 >
                   <img
                     src={media.thumbnail.regular?.small}
@@ -101,7 +103,7 @@ export default function TvSeries() {
                   >
                     <img src={bookmarkicon} alt="" />
                   </div>
-                  <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff]">
+                  <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff] tb:text-[13px]">
                     <div className="inline-div flex flex-row items-center gap-[8px]">
                       <p>{media.year}</p>
                       <img src={oval} alt="oval icon" />
@@ -121,7 +123,9 @@ export default function TvSeries() {
                       <p>{media.rating}</p>
                     </div>
                     <div className="name">
-                      <p className="text-[14px]">{media.title}</p>
+                      <p className="text-[14px] tb:text-[15px]">
+                        {media.title}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -130,6 +134,6 @@ export default function TvSeries() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

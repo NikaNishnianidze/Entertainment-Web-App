@@ -15,9 +15,13 @@ export default function Home() {
     media.title.toLowerCase().includes(searchValue.toLowerCase())
   );
   return (
-    <>
-      <div className="search mt-[26px] flex items-center gap-[16px] pl-[16px]">
-        <img src={searchIcon} alt="search icon" className="w-[24px] h-[24px]" />
+    <div className="dk:pl-[164px]">
+      <div className="search mt-[26px] flex items-center gap-[16px] pl-[16px] tb:pl-[25px] tb:mt-[33px] tb:gap-[24ox]">
+        <img
+          src={searchIcon}
+          alt="search icon"
+          className="w-[24px] h-[24px] tb:w-[32px] tb:h-[32px]"
+        />
         <input
           type="text"
           placeholder="Search for movies or TV series"
@@ -27,15 +31,15 @@ export default function Home() {
       </div>
       {searchValue && filteredMedia.length > 0 ? (
         <div>
-          <p className="pl-[16px] mt-[26px] text-[#fff] text-[20px] font-normal">
+          <p className="pl-[16px] mt-[26px] text-[#fff] text-[20px] font-normal tb:mt-[34px] tb:pl-[25px] tb:text-[32px]">
             Found {filteredMedia.length} results for {`'${searchValue}'`}
           </p>
-          <div className="recommended flex flex-row items-center justify-center flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px]">
+          <div className="recommended flex flex-row items-center justify-center tb:justify-start tb:pl-[25px] tb:gap-[29px] flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px]">
             {filteredMedia.map((media) => {
               return (
                 <div
                   key={media.title}
-                  className="mt-[24px] w-[164px] mb-[16px] h-[110px] rounded-[8px] relative"
+                  className="mt-[24px] w-[164px] mb-[16px] h-[110px] rounded-[8px] relative tb:w-[220px] tb:h-[140px] dk:w-[470px] dk:h-[230px]"
                 >
                   <img
                     src={media.thumbnail.regular?.small}
@@ -48,7 +52,7 @@ export default function Home() {
                   >
                     <img src={bookmarkicon} alt="" />
                   </div>
-                  <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff]">
+                  <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff] tb:text-[13px]">
                     <div className="inline-div flex flex-row items-center gap-[8px]">
                       <p>{media.year}</p>
                       <img src={oval} alt="oval icon" />
@@ -68,7 +72,9 @@ export default function Home() {
                       <p>{media.rating}</p>
                     </div>
                     <div className="name">
-                      <p className="text-[14px]">{media.title}</p>
+                      <p className="text-[14px] tb:text-[18px]">
+                        {media.title}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -78,17 +84,17 @@ export default function Home() {
         </div>
       ) : (
         <div className="films">
-          <p className="pl-[16px] mt-[26px] text-[#fff] text-[20px] font-normal">
+          <p className="pl-[16px] mt-[26px] text-[#fff] text-[20px] font-normal tb:mt-[34px] tb:pl-[25px]">
             Trending
           </p>
-          <div className="trending flex flex-row items-center gap-[16px] mt-[16px] overflow-x-auto scrollbar-hide pl-[16px]">
+          <div className="trending flex flex-row items-center gap-[16px] mt-[16px] tb:mt-[25px] tb:gap-[40px] overflow-x-auto scrollbar-hide pl-[16px] tb:pl-[25px]">
             {trendingMedia.map((media) => {
               return (
                 <div key={media.title} className="flex-shrink-0 relative">
                   <img
                     src={media.thumbnail.trending?.small}
                     alt="thumbnails"
-                    className="w-[240px] h-[140px] rounded-[8px]"
+                    className="w-[240px] h-[140px] rounded-[8px] tb:w-[470px] tb:h-[230px] dk:w-[470px] dk:h-[230px]"
                   />
                   <div
                     onClick={() => handleClick(media.id)}
@@ -96,7 +102,7 @@ export default function Home() {
                   >
                     <img src={bookmarkicon} alt="" />
                   </div>
-                  <div className="info absolute bottom-2 left-2 flex flex-col gap-[5px] text-[12px] font-normal text-[#fff]">
+                  <div className="info absolute bottom-2 left-2 flex flex-col gap-[5px] text-[12px] font-normal text-[#fff] tb:text-[15px]">
                     <div className="inline-div flex flex-row items-center gap-[8px]">
                       <p>{media.year}</p>
                       <img src={oval} alt="oval icon" />
@@ -116,22 +122,24 @@ export default function Home() {
                       <p>{media.rating}</p>
                     </div>
                     <div className="name">
-                      <p className="text-[15px]">{media.title}</p>
+                      <p className="text-[15px] tb:text-[24px]">
+                        {media.title}
+                      </p>
                     </div>
                   </div>
                 </div>
               );
             })}
           </div>
-          <p className="text-[#fff] text-[20px] font-normal px-[16px] mt-[24px]">
+          <p className="text-[#fff] text-[20px] font-normal px-[16px] mt-[24px] tb:mt-[39px] tb:text-[32px] tb:pl-[25px]">
             Recommended for you
           </p>
-          <div className="recommended flex flex-row items-center justify-center flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px]">
+          <div className="recommended flex flex-row items-center justify-center flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px] tb:gap-[29px] dk:gap-[40px]">
             {regularMedia.map((media) => {
               return (
                 <div
                   key={media.title}
-                  className="mt-[24px] w-[164px] mb-[16px] h-[110px] rounded-[8px] relative"
+                  className="mt-[24px] w-[164px] mb-[16px] h-[110px] rounded-[8px] relative tb:w-[220px] tb:h-[140px] dk:w-[280px] dk:h-[174px]"
                 >
                   <img
                     src={media.thumbnail.regular?.small}
@@ -144,7 +152,7 @@ export default function Home() {
                   >
                     <img src={bookmarkicon} alt="" />
                   </div>
-                  <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff]">
+                  <div className="info flex flex-col mt-[10px] text-[11px] font-normal text-[#fff] tb:text-[13px]">
                     <div className="inline-div flex flex-row items-center gap-[8px]">
                       <p>{media.year}</p>
                       <img src={oval} alt="oval icon" />
@@ -164,7 +172,9 @@ export default function Home() {
                       <p>{media.rating}</p>
                     </div>
                     <div className="name">
-                      <p className="text-[14px]">{media.title}</p>
+                      <p className="text-[14px] tb:text-[18px]">
+                        {media.title}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -173,6 +183,6 @@ export default function Home() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

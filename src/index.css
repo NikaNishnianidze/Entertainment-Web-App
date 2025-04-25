@@ -4,6 +4,10 @@
 @theme {
   --color-header: #161d2f;
   --color-bookmark: #10141e;
+
+  --breakpoint-mb: 375px;
+  --breakpoint-tb: 768px;
+  --breakpoint-dk: 1440px;
 }
 
 body {
