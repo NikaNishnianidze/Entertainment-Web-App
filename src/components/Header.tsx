@@ -12,6 +12,16 @@ export default function Header() {
   const handleHome = () => {
     navigate("/home");
   };
+  const handleMovies = () => {
+    navigate("/movies");
+  };
+
+  const handleTvSeries = () => {
+    navigate("/tv-series");
+  };
+  const handleBookMark = () => {
+    navigate("/book-mark");
+  };
   const isActive = (path: string) => location.pathname === path;
 
   return (
@@ -26,9 +36,24 @@ export default function Header() {
           onClick={handleHome}
           className={isActive("/home") ? "filter-white" : "filter-gray"}
         />
-        <img src={moviesIcon} alt="moviesIcon" />
-        <img src={tvSeriesIcon} alt="series icon" />
-        <img src={bookMarkIcon} alt="bookmark icon" />
+        <img
+          src={moviesIcon}
+          alt="moviesIcon"
+          onClick={handleMovies}
+          className={isActive("/movies") ? "filter-white" : "filter-gray"}
+        />
+        <img
+          src={tvSeriesIcon}
+          alt="series icon"
+          onClick={handleTvSeries}
+          className={isActive("/tv-series") ? "filter-white" : "filter-gray"}
+        />
+        <img
+          src={bookMarkIcon}
+          alt="bookmark icon"
+          onClick={handleBookMark}
+          className={isActive("/book-mark") ? "filter-white" : "filter-gray"}
+        />
       </div>
       <div className="avatar">
         <img

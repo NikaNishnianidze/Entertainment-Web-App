@@ -1,18 +1,20 @@
-import { useState } from "react";
-import searchIcon from "../../public/assets/icon-search.svg";
 import { UseMediaContext } from "../context/WebProvider";
+import searchIcon from "../../public/assets/icon-search.svg";
+import { useState } from "react";
+import oval from "../../public/assets/Oval.svg";
 import bookmarkicon from "../../public/assets/icon-bookmark-empty.svg";
 import movieIcon from "../../public/assets/icon-nav-movies.svg";
 import tvSeriesIcon from "../../public/assets/icon-nav-tv-series.svg";
-import oval from "../../public/assets/Oval.svg";
 
-export default function Home() {
-  const [searchValue, setSearchValue] = useState<string>("");
+export default function TvSeries() {
   const { mediaData, handleClick } = UseMediaContext();
-  const trendingMedia = mediaData.filter((media) => media.isTrending);
-  const regularMedia = mediaData.filter((media) => !media.isTrending);
-  const filteredMedia = mediaData.filter((media) =>
+  const [searchValue, setSearchValue] = useState<string>("");
+  const filteredMovies = mediaData.filter((media) =>
     media.title.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
+  const tvseries = mediaData.filter(
+    (media) => media.category === "Movie" && media.isTrending == false
   );
   return (
     <>
@@ -20,18 +22,18 @@ export default function Home() {
         <img src={searchIcon} alt="search icon" className="w-[24px] h-[24px]" />
         <input
           type="text"
-          placeholder="Search for movies or TV series"
+          placeholder="Search for movies"
           onChange={(e) => setSearchValue(e.target.value)}
           className="text-[#fff] text-[16px] font-medium w-[230px] py-[2px] outline-none"
         />
       </div>
-      {searchValue && filteredMedia.length > 0 ? (
+      {searchValue && filteredMovies.length > 0 ? (
         <div>
           <p className="pl-[16px] mt-[26px] text-[#fff] text-[20px] font-normal">
-            Found {filteredMedia.length} results for {`'${searchValue}'`}
+            Found {filteredMovies.length} results for {`'${searchValue}'`}
           </p>
           <div className="recommended flex flex-row items-center justify-center flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px]">
-            {filteredMedia.map((media) => {
+            {filteredMovies.map((media) => {
               return (
                 <div
                   key={media.title}
@@ -77,57 +79,12 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        <div className="films">
-          <p className="pl-[16px] mt-[26px] text-[#fff] text-[20px] font-normal">
-            Trending
-          </p>
-          <div className="trending flex flex-row items-center gap-[16px] mt-[16px] overflow-x-auto scrollbar-hide pl-[16px]">
-            {trendingMedia.map((media) => {
-              return (
-                <div key={media.title} className="flex-shrink-0 relative">
-                  <img
-                    src={media.thumbnail.trending?.small}
-                    alt="thumbnails"
-                    className="w-[240px] h-[140px] rounded-[8px]"
-                  />
-                  <div
-                    onClick={() => handleClick(media.id)}
-                    className="bookmark absolute top-2 right-2 w-[32px] h-[32px] rounded-[50%] bg-bookmark/50 flex items-center justify-center"
-                  >
-                    <img src={bookmarkicon} alt="" />
-                  </div>
-                  <div className="info absolute bottom-2 left-2 flex flex-col gap-[5px] text-[12px] font-normal text-[#fff]">
-                    <div className="inline-div flex flex-row items-center gap-[8px]">
-                      <p>{media.year}</p>
-                      <img src={oval} alt="oval icon" />
-                      <div className="movie flex flex-row items-center gap-[6px]">
-                        <img
-                          src={
-                            media.category === "Movie"
-                              ? movieIcon
-                              : tvSeriesIcon
-                          }
-                          alt="movie icon"
-                          className="filter-white w-[12px] h-[12px]"
-                        />
-                        <p>{media.category}</p>
-                      </div>
-                      <img src={oval} alt="oval icon" />
-                      <p>{media.rating}</p>
-                    </div>
-                    <div className="name">
-                      <p className="text-[15px]">{media.title}</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <p className="text-[#fff] text-[20px] font-normal px-[16px] mt-[24px]">
-            Recommended for you
+        <div>
+          <p className="px-[16px] mt-[26px] text-[#fff] text-[20px] font-normal">
+            Movies
           </p>
           <div className="recommended flex flex-row items-center justify-center flex-wrap mb-[60px] px-[16px] gap-[15px] mt-[24px]">
-            {regularMedia.map((media) => {
+            {tvseries.map((media) => {
               return (
                 <div
                   key={media.title}

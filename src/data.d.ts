@@ -11,6 +11,7 @@ interface Thumbnail {
 }
 
 export interface Media {
+  id: number;
   title: string;
   thumbnail: Thumbnail;
   year: number;
